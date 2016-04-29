@@ -1,0 +1,73 @@
+@import 'colors.less';
+@import 'sizes.less';
+@import 'mixins.less';
+
+.click-menu {
+  margin: 0 auto;
+  display: block;
+  overflow: hidden;
+  border: 1px solid @border-color;
+}
+
+.click-menu-view {
+  display: block;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.click-menu-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.click-menu-link:hover {
+  background-color: #b7cee4;
+}
+
+.click-menu-nav {
+  position: relative;
+  border: none;
+  /*background-color: #b7cee4;*/
+  padding: 0px;
+  margin: 0px;
+  z-index: 1;
+  min-width: @click-menu-width * 0.75;
+}
+
+.click-menu-contents,
+.click-menu-nav {
+  .bs-inline-block;
+}
+
+.click-menu,
+.click-menu-contents,
+.click-menu-link {
+  width: @click-menu-width;
+  max-width: @click-menu-width;
+}
+
+.click-menu {
+  max-height: @click-menu-height;
+  height: @click-menu-height;
+  line-height: @click-menu-height;
+}
+
+.click-menu-nav li,
+.click-menu-nav ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.click-menu-nav li {
+  padding-left: 5px;
+  padding-right: 5px;
+  .bs-inline-block;
+}

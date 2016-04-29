@@ -2,6 +2,7 @@ module.exports = function() {
   'use strict';
 
   var client = './src/client/';
+  var clientPlugin = client + 'plugin/';
   var clientApp = client + 'app/';
   var server = './src/server/';
   var report = './report/';
@@ -35,12 +36,14 @@ module.exports = function() {
     // all js with no spec files
     js: [
       clientApp + '**/*.js',
-      '!' + clientApp + '**/*.spec.js'
+      clientPlugin + '**/*.js',
+      '!' + clientApp + '**/*.spec.js',
+      '!' + clientPlugin + '**/*.spec.js'
     ],
     jsOrder: [
       '**/*.js'
     ],
-    less: client + 'styles/**/*.less',
+    less: [client + 'styles/**/*.less', clientPlugin + 'styles/**/*.less'],
     report: report,
     root: root,
     server: server,
@@ -63,12 +66,13 @@ module.exports = function() {
     specRunnerFile: specRunnerFile,
 
     /* Spec Injections */
-    testLibraries: [
-      nodeModules + '/mocah/mocha.js',
+    testlibraries: [
+      nodeModules + '/qunitjs/qunit/qunit.js',
+      nodeModules + '/mocha/mocha.js',
       nodeModules + '/chai/chai.js',
       nodeModules + '/sinon-chai/lib/sinon-chai.js'
     ],
-    specs: [clientApp + '**/*.spec.js'],
+    specs: [clientPlugin + '**/*.spec.js'],
 
     /* Node Settings */
     nodeServer: server + 'app.js',

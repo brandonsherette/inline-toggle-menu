@@ -261,6 +261,9 @@ function inject(src, label, order) {
   if (label) {
     options.name = 'inject:' + label;
   }
+  
+  log('About to inject: ' + label);
+  log('with source: ' + src);
 
   return $.inject(orderSrc(src, order), options);
 }
@@ -271,7 +274,7 @@ function inject(src, label, order) {
  * @param   {Array} order Glob array pattern
  * @returns {Stream} The ordered stream
  */
-function orderSrc(src, order) {
+function orderSrc(src, order) {  
   //order = order || ['**/*'];
   return gulp
     .src(src)
