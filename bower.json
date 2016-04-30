@@ -9,8 +9,13 @@
     "build/click-menu.js",
     "build/styles/styles.css"
   ],
-  "files": [
-    "build/**/*"
+  "ignore": [
+    "api-docs",
+    "gulp*.**",
+    "karma.config.js",
+    ".jscsrc",
+    ".editorconfig",
+    "src/client"
   ],
   "license": "MIT",
   "devDependencies": {

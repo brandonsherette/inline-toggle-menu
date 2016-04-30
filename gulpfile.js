@@ -149,7 +149,7 @@ gulp.task('build-specs', [], function(done) {
  * This is separate so we can run tests on
  * optimize before handling image or fonts
  */
-gulp.task('build', ['optimize', 'build-styles', 'build-js', 'merge-build-files'], function() {
+gulp.task('build', ['optimize', 'build-styles', 'build-js'], function() {
   log('Building everything');
 
   log($.util.colors.blue('Build Completed!'));
@@ -173,8 +173,8 @@ gulp.task('build-styles', ['clean-build-styles'], function() {
     .pipe($.plumber()) // exit gracefully if something fails after this
     .pipe($.less())
     .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
-    .pipe($.concat('styles.css'))
-    .pipe(gulp.dest(config.build + 'styles'));
+    .pipe($.concat(config.pluginName + '.css'))
+    .pipe(gulp.dest(config.build));
 });
 
 gulp.task('optimize', ['optimize-js', 'optimize-css'], function() {
@@ -204,14 +204,8 @@ gulp.task('optimize-css', function() {
     .pipe($.plumber()) // exit gracefully if something fails after this
     .pipe($.less())
     .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
-    .pipe($.concat('styles.min.css'))
+    .pipe($.concat(config.pluginName + '.min.css'))
     .pipe($.minifyCss())
-    .pipe(gulp.dest(config.build + 'styles'));
-});
-
-gulp.task('merge-build-files', function() {
-  return gulp
-    .src(config.buildMergeFiles)
     .pipe(gulp.dest(config.build));
 });
 

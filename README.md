@@ -11,7 +11,7 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-click
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     
-<link rel="stylesheet" href="bower_components/click-menu/styles/styles.min.css">
+<link rel="stylesheet" href="bower_components/click-menu/click-menu.min.css">
 ```
 ## Add JavaScript to Html Page
 ```html
