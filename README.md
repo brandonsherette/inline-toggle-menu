@@ -10,7 +10,6 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-click
 ```html
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    
 <link rel="stylesheet" href="bower_components/click-menu/click-menu.min.css">
 ```
 ## Add JavaScript to Html Page
@@ -19,7 +18,7 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-click
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/click-menu/click-menu.min.js"></script>
 ```
-## Add the Click Menu
+## Click Menu Example
 ```
 <section class="container">
   <h1 class="text-center">Products</h1>
@@ -55,5 +54,5 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-click
 
 </section>
 ```
-## Examples
-There are examples in the example folder to better see how to add the click-menu in the context of an html file (bower_components/click-menu/examples).
+## Working Example
+To see a working example just open examples/menu.html.
