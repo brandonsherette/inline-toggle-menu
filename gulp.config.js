@@ -27,7 +27,7 @@ module.exports = function() {
       './src/**/*.js',
       './*.js'
     ],
-    build: './dist/',
+    build: './build/',
     buildMergeFiles: './build-merge/**/*',
     client: client,
     css: temp + 'styles.css',

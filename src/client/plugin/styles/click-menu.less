@@ -50,6 +50,8 @@
   cursor: pointer;
   background-color: transparent;
   border: 0;
+  font-size: @link-font-size;
+  text-align: left;
 }
 
 .click-menu-link,
@@ -69,13 +71,6 @@
   // and add 1px for border size to completely move the toggle into 
   // the viewable mask
   right: @nav-width + (@inline-block-spacing / 2) + 1;
-  
-  ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-  }
   
   .nav-item {
     border-left: 1px solid @color-border;

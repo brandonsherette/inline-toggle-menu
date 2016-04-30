@@ -161,7 +161,7 @@ gulp.task('build-js', ['clean-build-js'], function() {
   return gulp
     .src(config.pluginSrcCode)
     .pipe($.plumber())
-    .pipe($.concat(config.pluginName) + '.js')
+    .pipe($.concat(config.pluginName + '.js'))
     .pipe(gulp.dest(config.build));
 });
 
@@ -191,8 +191,8 @@ gulp.task('optimize-js', ['test'], function() {
   return gulp
     .src(config.pluginSrcCode)
     .pipe($.plumber())
-    .pipe($.uglify())
     .pipe($.concat(config.pluginName + '.min.js'))
+    .pipe($.uglify())
     .pipe(gulp.dest(config.build));
 });
 
@@ -201,10 +201,12 @@ gulp.task('optimize-css', function() {
 
   return gulp
     .src(config.pluginLess)
-    .pipe($.plumber())
-    .pipe($.minifyCss())
+    .pipe($.plumber()) // exit gracefully if something fails after this
+    .pipe($.less())
+    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
     .pipe($.concat('styles.min.css'))
-    .pipe(gulp.dest(config.build + '/styles'));
+    .pipe($.minifyCss())
+    .pipe(gulp.dest(config.build + 'styles'));
 });
 
 gulp.task('merge-build-files', function() {
