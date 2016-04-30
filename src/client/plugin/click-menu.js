@@ -1,3 +1,4 @@
+/* jshint -W117 */
 var ClickMenu = (function($) {
   /**
    * Stores all click menus.
@@ -131,7 +132,7 @@ var ClickMenu = (function($) {
    */
   function _onToggleClick(e, menu) {
     // determine what to do based on menu toggle state
-    switch(menu.toggleState) {
+    switch (menu.toggleState) {
       case TOGGLE_STATE.CLOSED:
         _openMenu(menu);
         break;
@@ -140,10 +141,9 @@ var ClickMenu = (function($) {
         _closeMenu(menu);
         break;
 
-      case TOGGLE_STATE.BUSY:
       default:
-        // ignore all other cases, usually the menu is busy
-        break;
+        // no need to do anything, usually will be in the BUSY state
+        return;
     }
   }
 
