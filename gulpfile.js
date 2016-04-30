@@ -12,6 +12,20 @@ var port = process.env.PORT || config.defaultPort;
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
+gulp.task('clean-build', function() {
+  clean(config.build);
+});
+
+/**
+ * Remove all files from the build, temp, and reports folders
+ * @param  {Function} done - callback when complete
+ */
+gulp.task('clean', function(done) {
+  var delconfig = [].concat(config.build, config.temp, config.report);
+  log('Cleaning: ' + $.util.colors.blue(delconfig));
+  del(delconfig, done);
+});
+
 /**
  * vet the code and create coverage report
  * @return {Stream}
@@ -51,8 +65,7 @@ gulp.task('styles', ['clean-styles'], function() {
 gulp.task('clean-styles', function(done) {
   var files = [].concat(
     config.temp + '**/*.css',
-    config.build + 'styles/**/*.css'
-    );
+    config.build + 'styles/**/*.css');
   clean(files, done);
 });
 
@@ -126,7 +139,7 @@ gulp.task('build-specs', [], function(done) {
  * This is separate so we can run tests on
  * optimize before handling image or fonts
  */
-gulp.task('build', ['optimize'], function() {
+gulp.task('build', ['clean-build', 'test'], function() {
   log('Building everything');
   log($.util.colors.red('TODO: Add Build Functionality'));
 });
@@ -210,15 +223,15 @@ gulp.task('bump', function() {
 });
 
 gulp.task('jsdoc', function() {
-  return gulp.src('src/**/*.js')
+  return gulp.src(config.pluginSrcCode)
     .pipe($.yuidoc({
-      'name': 'click-menu API',
-      'description': 'The click-menu API.',
-      'version': require('./package').version,
-      'url': ''
+      name: 'click-menu API',
+      description: 'The click-menu API.',
+      /*'version': require('./package').version,*/
+      url: ''
     }, {
-      'themedir': 'node_modules/yuidoc-bootstrap-theme',
-      'helpers': ['node_modules/yuidoc-bootstrap-theme/helpers/helpers.js']
+      themedir: 'node_modules/yuidoc-bootstrap-theme',
+      helpers: ['node_modules/yuidoc-bootstrap-theme/helpers/helpers.js']
     }))
     .pipe(gulp.dest('api-docs'));
 });

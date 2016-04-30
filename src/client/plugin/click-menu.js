@@ -11,29 +11,28 @@ var ClickMenu = (function($) {
   var menus = [];
   /**
    * The different states the menu toggle can be in.
-   * @property TOGGLE_STATE
-   * @type Object
-   * @default TOGGLE.BUSY, TOGGLE.CLOSES, TOGGLE.OPENED
+   * @property {Object} TOGGLE_STATE
    * @since 0.0.1
    */
   var TOGGLE_STATE = {
     /**
      * When the toggle is busy, usually in the animation process.
-     * @property BUSY
+     * @property {String} TOGGLE_STATE.BUSY
+     * @type String
      * @default 'busy'
      * @since 0.0.1
      */
     BUSY: 'busy',
     /**
      * When the toggle is closed.
-     * @property CLOSED
+     * @property {String} TOGGLE_STATE.CLOSED
      * @default 'closed'
      * @since 0.0.1
      */
     CLOSED: 'closed',
     /**
      * When the toggle is opened.
-     * @property OPENED
+     * @property {String} TOGGLE_STATE.OPENED
      * @default 'opened'
      * @since 0.0.1
      */

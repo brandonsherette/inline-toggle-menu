@@ -61,6 +61,12 @@ module.exports = function() {
       './bower.json'
     ],
 
+    /* Plugin Info */
+    pluginSrcCode: [
+      clientPlugin + '**/*.js',
+      '!' + clientPlugin + '**/*.spec.js'
+    ],
+
     /* Spec Files */
     specRunner: client + specRunnerFile,
     specRunnerFile: specRunnerFile,
