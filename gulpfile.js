@@ -58,18 +58,6 @@ gulp.task('styles', ['clean-styles'], function() {
     .pipe(gulp.dest(config.temp));
 });
 
-gulp.task('build-styles' ['clean-build-styles'], function(done) {
-  log('Compiling Less --> CSS in Build');
-
-  return gulp
-    .src(config.pluginLess)
-    .pipe($.plumber()) // exit gracefully if something fails after this
-    .pipe($.less())
-    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
-    .pipe($.concat('styles.css'))
-    .pipe(gulp.dest(config.build + 'styles'));
-});
-
 gulp.task('clean-build-styles', function(done) {
   log('Cleaning Build Styles');
 
@@ -85,6 +73,10 @@ gulp.task('clean-styles', function(done) {
     config.temp + '**/*.css',
     config.build + 'styles/**/*.css');
   clean(files, done);
+});
+
+gulp.task('clean-build-js', function(done) {
+  clean(config.build + '**/*.js', done);
 });
 
 gulp.task('less-watcher', function() {
@@ -157,10 +149,32 @@ gulp.task('build-specs', [], function(done) {
  * This is separate so we can run tests on
  * optimize before handling image or fonts
  */
-gulp.task('build', ['clean-build', 'optimize'], function() {
+gulp.task('build', ['optimize', 'build-styles', 'build-js', 'merge-build-files'], function() {
   log('Building everything');
-  
+
   log($.util.colors.blue('Build Completed!'));
+});
+
+gulp.task('build-js', ['clean-build-js'], function() {
+  log('Compling Plugin JS');
+
+  return gulp
+    .src(config.pluginSrcCode)
+    .pipe($.plumber())
+    .pipe($.concat(config.pluginName) + '.js')
+    .pipe(gulp.dest(config.build));
+});
+
+gulp.task('build-styles', ['clean-build-styles'], function() {
+  log('Compiling Less --> CSS in Build');
+
+  return gulp
+    .src(config.pluginLess)
+    .pipe($.plumber()) // exit gracefully if something fails after this
+    .pipe($.less())
+    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+    .pipe($.concat('styles.css'))
+    .pipe(gulp.dest(config.build + 'styles'));
 });
 
 gulp.task('optimize', ['optimize-js', 'optimize-css'], function() {
@@ -189,8 +203,14 @@ gulp.task('optimize-css', function() {
     .src(config.pluginLess)
     .pipe($.plumber())
     .pipe($.minifyCss())
-    .pipe($.concat('styles.css'))
+    .pipe($.concat('styles.min.css'))
     .pipe(gulp.dest(config.build + '/styles'));
+});
+
+gulp.task('merge-build-files', function() {
+  return gulp
+    .src(config.buildMergeFiles)
+    .pipe(gulp.dest(config.build));
 });
 
 /**

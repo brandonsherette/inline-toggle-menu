@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>click-menu</title>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="description" content="click-menu">
+    <base href="/">
+
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="../styles/styles.min.css">
+  </head>
+  <body>
+    <h1>Products</h1>
+    
+    <div class="click-menu">
+      <div class="click-menu-view">
+        <div class="click-menu-contents">
+          <a href="#/view/1" class="btn btn-default click-menu-link">
+            Car Battery
+          </a>
+        </div>
+        <div class="click-menu-nav">
+          <div class="nav-item">
+            <button class="btn btn-primary click-menu-toggle">
+              <i class="toggle-icon fa fa-arrow-circle-left"></i>
+            </button>
+          </div>
+          <div class="nav-item">
+            <a href="#/edit/1" class="btn btn-info">
+              <i class="fa fa-edit"></i>
+            </a>
+          </div>
+          <div class="nav-item">
+            <a href="#/delete/1" class="btn btn-danger">
+              <i class="fa fa-close"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../click-menu.min.js"></script>
+  </body>
+</html>
