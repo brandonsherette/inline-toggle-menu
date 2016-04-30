@@ -17,6 +17,8 @@ module.exports = function() {
     ignorePath: '../..'
   };
   var nodeModules = 'node_modules';
+  var pluginLess = clientPlugin + 'styles/**/*.less';
+  var pluginName = 'click-menu';
 
   var config = {
     /* FILE PATHS */
@@ -25,7 +27,7 @@ module.exports = function() {
       './src/**/*.js',
       './*.js'
     ],
-    build: './build/',
+    build: './dist/',
     client: client,
     css: temp + 'styles.css',
     fonts: bower.directory + 'font-awesome/fonts/**/*.*',
@@ -43,7 +45,9 @@ module.exports = function() {
     jsOrder: [
       '**/*.js'
     ],
-    less: [client + 'styles/**/*.less', clientPlugin + 'styles/**/*.less'],
+    less: [client + 'styles/**/*.less', pluginLess],
+    pluginLess: pluginLess,
+    pluginName: pluginName,
     report: report,
     root: root,
     server: server,

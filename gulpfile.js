@@ -58,6 +58,24 @@ gulp.task('styles', ['clean-styles'], function() {
     .pipe(gulp.dest(config.temp));
 });
 
+gulp.task('build-styles' ['clean-build-styles'], function(done) {
+  log('Compiling Less --> CSS in Build');
+
+  return gulp
+    .src(config.pluginLess)
+    .pipe($.plumber()) // exit gracefully if something fails after this
+    .pipe($.less())
+    .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+    .pipe($.concat('styles.css'))
+    .pipe(gulp.dest(config.build + 'styles'));
+});
+
+gulp.task('clean-build-styles', function(done) {
+  log('Cleaning Build Styles');
+
+  clean(config.build + 'styles/**/*.css', done);
+});
+
 /**
  * Remove all styles from the build and temp folders
  * @param  {Function} done - callback when complete
@@ -139,19 +157,40 @@ gulp.task('build-specs', [], function(done) {
  * This is separate so we can run tests on
  * optimize before handling image or fonts
  */
-gulp.task('build', ['clean-build', 'test'], function() {
+gulp.task('build', ['clean-build', 'optimize'], function() {
   log('Building everything');
-  log($.util.colors.red('TODO: Add Build Functionality'));
+  
+  log($.util.colors.blue('Build Completed!'));
+});
+
+gulp.task('optimize', ['optimize-js', 'optimize-css'], function() {
+  log('Optimized JS and CSS');
 });
 
 /**
- * Optimize all files, move to a build folder,
- * and inject them into the new index.html
+ * Optimize js files.
  * @return {Stream}
  */
-gulp.task('optimize', ['inject', 'test'], function() {
+gulp.task('optimize-js', ['test'], function() {
   log('Optimizing the js, css, and html');
-  log($.util.colors.red('TODO: Add Optimize'));
+
+  return gulp
+    .src(config.pluginSrcCode)
+    .pipe($.plumber())
+    .pipe($.uglify())
+    .pipe($.concat(config.pluginName + '.min.js'))
+    .pipe(gulp.dest(config.build));
+});
+
+gulp.task('optimize-css', function() {
+  log('Optimizing css');
+
+  return gulp
+    .src(config.pluginLess)
+    .pipe($.plumber())
+    .pipe($.minifyCss())
+    .pipe($.concat('styles.css'))
+    .pipe(gulp.dest(config.build + '/styles'));
 });
 
 /**
