@@ -5,7 +5,13 @@
     "Brandon sherette"
   ],
   "version": "0.0.1",
-  "main": "",
+  "main": [
+    "build/click-menu.js",
+    "build/styles/styles.css"
+  ],
+  "files": [
+    "build/**/*"
+  ],
   "license": "MIT",
   "devDependencies": {
     "sinon": "http://sinonjs.org/releases/sinon-1.12.1.js"
