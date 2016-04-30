@@ -1,0 +1,37 @@
+.click-menu-toggle-to-open {
+  .animation(rotate-backward, 750ms, ease, forwards);
+}
+
+.click-menu-toggle-to-close {
+  .animation(rotate-forward, 750ms, ease, forwards);
+}
+
+.animation(@name, @duration: 300ms, @ease: ease, @fillMode: forwards) {
+  -webkit-animation: @name @duration @ease @fillMode;
+  -moz-animation: @name @duration @ease @fillMode;
+  -ms-animation: @name @duration @ease @fillMode;
+  animation: @name @duration @ease @fillMode;
+}
+
+.rotate(@deg: 180deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+@keyframes rotate-forward {
+  from {
+    .rotate(0deg);
+  } to {
+    .rotate(180deg);
+  }
+}
+@keyframes rotate-backward {
+  from {
+    .rotate(180deg);
+  } to {
+    .rotate(0deg);
+  }
+}

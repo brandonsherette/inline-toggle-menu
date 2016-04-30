@@ -7,7 +7,5 @@ bower_components/
 .tmp
 
 # IDE
-nbproject/private/
-.komodotools
+nbproject
 .netbeans.xml
-*.komodoproject

@@ -11,6 +11,7 @@
 
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     
     <!-- inject:css -->
@@ -20,7 +21,7 @@
   <body class="fixed-navbar-break">
     <header>
       <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container-fluid container-small">
           <div class="navbar-header">
             <button type="button"
                     class="navbar-toggle collapsed"
@@ -39,7 +40,7 @@
           
           <div class="collapse navbar-collapse pull-right" id="#main-menu">
             <ul class="nav navbar-nav">
-              <li class="active">
+              <li>
                 <a href="/">
                 Home <span class="sr-only">(current)</span>
                 </a>
@@ -48,6 +49,7 @@
           </div>
         </div>
       </nav>
+      <div class="clearfix"></div>
     </header>
     
     <div class="container-small">
@@ -55,28 +57,59 @@
         <li role="presentation" class="click-menu">
           <span class="click-menu-view">
             <span class="click-menu-contents">
-              <span class="click-menu-link">Pencil</span>
+              <a href="#/view/1" 
+                 class="btn-default click-menu-link">
+                Pencil
+              </a>
             </span>
             <ul class="click-menu-nav">
-              <li><a href="#">View</a></li>
-              <li><a href="#">Edit</a></li>
-              <li><a href="#">Delete</a></li>
-            </ul>
-          </span>
-        </li>
-        <li role="presentation" class="click-menu">
+              <li class="click-menu-toggle">
+                <button type="button" 
+                        class="btn btn-default-alt">
+                  <i class="toggle-icon fa fa-arrow-circle-left"></i>
+                </button>
+              </li>
+              <li>
+                <a href="#/edit/1" class="btn btn-info">
+                  <i class="fa fa-edit"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#/delete/1" class="btn btn-danger">
+                  <i class="fa fa-close"></i>
+                </a>
+              </li>
+            </ul><!-- end click-menu-nav -->
+          </span><!-- end click-menu-view -->
+        </li><!-- end click-menu -->
+        <li class="click-menu">
           <span class="click-menu-view">
             <span class="click-menu-contents">
-              <span class="click-menu-link">Scissors</span>
+              <a href="#/view/2" class="btn-default click-menu-link">
+                Scissors
+              </a>
             </span>
             <ul class="click-menu-nav">
-              <li><a href="#">View</a></li>
-              <li><a href="#">Edit</a></li>
-              <li><a href="#">Delete</a></li>
-            </ul>
-          </span>
-        </li>
-      </ul>
+              <li class="click-menu-toggle">
+                <button type="button"
+                        class="btn btn-default-alt">
+                  <i class="toggle-icon fa fa-arrow-circle-left"></i>
+                </button>
+              </li>
+              <li>
+                <a href="#/edit/2" class="btn btn-info">
+                  <i class="fa fa-edit"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#/delete/2" class="btn btn-danger">
+                  <i class="fa fa-close"></i>
+                </a>
+              </li>
+            </ul><!-- end click-menu-nav -->
+          </span><!-- end click-menu-view -->
+        </li><!-- end click-menu -->
+      </ul><!-- end nav -->
     </div>
     
     <!-- bower:js -->
