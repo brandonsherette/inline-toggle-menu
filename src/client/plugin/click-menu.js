@@ -39,7 +39,6 @@ var ClickMenu = (function($) {
      */
     OPENED: 'opened'
   };
-  var timesClicked = 0;
 
   /**
    * Click Menu. Used to transition menu into view after click, much like

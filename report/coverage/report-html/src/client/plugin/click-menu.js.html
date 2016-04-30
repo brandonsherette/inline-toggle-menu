@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/client/plugin/click-menu.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/client/plugin/click-menu.js</span></h1>
+    <h2>
+        Statements: <span class="metric">28.3% <small>(15 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">16.67% <small>(2 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">28.3% <small>(15 / 53)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/client/plugin/</a> &#187; click-menu.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* jshint -W117 */
+var ClickMenu = (function($) {
+  /**
+   * Stores all click menus.
+   * @property menus
+   * @private
+   * @type Array
+   * @default []
+   * @since 0.0.1
+   */
+  var menus = [];
+  /**
+   * The different states the menu toggle can be in.
+   * @property TOGGLE_STATE
+   * @type Object
+   * @default TOGGLE.BUSY, TOGGLE.CLOSES, TOGGLE.OPENED
+   * @since 0.0.1
+   */
+  var TOGGLE_STATE = {
+    /**
+     * When the toggle is busy, usually in the animation process.
+     * @property BUSY
+     * @default 'busy'
+     * @since 0.0.1
+     */
+    BUSY: 'busy',
+    /**
+     * When the toggle is closed.
+     * @property CLOSED
+     * @default 'closed'
+     * @since 0.0.1
+     */
+    CLOSED: 'closed',
+    /**
+     * When the toggle is opened.
+     * @property OPENED
+     * @default 'opened'
+     * @since 0.0.1
+     */
+    OPENED: 'opened'
+  };
+&nbsp;
+  /**
+   * Click Menu. Used to transition menu into view after click, much like
+   * a dropdown, however does it over the link along with some sort of
+   * animation effect.
+   * @class ClickMenu
+   * @author Brandon Sherette
+   * @since 0.0.1
+   */
+  var ClickMenu = {
+    $: $,
+    init: init,
+    getMenus: getMenus,
+    TOGGLE_STATE: TOGGLE_STATE
+  };
+&nbsp;
+  $(document).ready(ClickMenu.init);
+&nbsp;
+  return ClickMenu;
+  //////////////////
+  /* API METHODS */
+  /////////////////
+  /**
+   * Initializes the click menu. Searches for all click menus, and
+   * sets them up for use. Init is automatically called once after the
+   * document is ready.
+   * @method init
+   * @since 0.0.1
+   */
+  function init() {
+    var $menus = $('.click-menu');
+&nbsp;
+    // bind menu data
+    $menus.each(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >      var $root = $(this);</span>
+<span class="cstat-no" title="statement not covered" >      var $view = $root.find('.click-menu-view');</span>
+<span class="cstat-no" title="statement not covered" >      var $link = $root.find('.click-menu-link');</span>
+<span class="cstat-no" title="statement not covered" >      var $nav = $root.find('.click-menu-nav');</span>
+<span class="cstat-no" title="statement not covered" >      var $toggle = $nav.find('.click-menu-toggle');</span>
+<span class="cstat-no" title="statement not covered" >      var closePosition = parseFloat($nav.css('right'));</span>
+&nbsp;
+      // calculate openPosition by the complete nav width
+      // plus difference any extra spacing the start close position has
+<span class="cstat-no" title="statement not covered" >      var navWidth = $nav.width();</span>
+<span class="cstat-no" title="statement not covered" >      var openPosition = navWidth + (closePosition - $toggle.width());</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var menu = {</span>
+        $root: $root,
+        $view: $view,
+        $link: $link,
+        $nav: $nav,
+        $toggle: $toggle,
+        $toggleIcon: $toggle.find('.toggle-icon'),
+        closePosition: closePosition,
+        openPosition: openPosition,
+        toggleState: TOGGLE_STATE.CLOSED
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      menus.push(menu);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      $view.width($root.width() + $nav.width());</span>
+&nbsp;
+      // bind click events
+<span class="cstat-no" title="statement not covered" >      menu.$toggle.on('click', <span class="fstat-no" title="function not covered" >function(e) {</span></span>
+<span class="cstat-no" title="statement not covered" >        _onToggleClick(e, menu);</span>
+      });
+    });
+  }
+&nbsp;
+  /**
+   * Gets all the menus.
+   * @method getMenus
+   * @return {Array} all click menus.
+   * @since 0.0.1
+   */
+<span class="fstat-no" title="function not covered" >  function getMenus() {</span>
+<span class="cstat-no" title="statement not covered" >    return menus;</span>
+  }
+&nbsp;
+  /////////////////////
+  /* PRIVATE METHODS */
+  /////////////////////
+  /**
+   * The event that the a menu toggle has been clicked.
+   * @method _onToggleClick
+   * @private
+   * @param {Event} e the event that was triggered.
+   * @param {Object} menu the menu that was triggered the event.
+   * @since 0.0.1
+   */
+<span class="fstat-no" title="function not covered" >  function _onToggleClick(e, menu) {</span>
+    // determine what to do based on menu toggle state
+<span class="cstat-no" title="statement not covered" >    switch (menu.toggleState) {</span>
+      case TOGGLE_STATE.CLOSED:
+<span class="cstat-no" title="statement not covered" >        _openMenu(menu);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+&nbsp;
+      case TOGGLE_STATE.OPENED:
+<span class="cstat-no" title="statement not covered" >        _closeMenu(menu);</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+&nbsp;
+      default:
+        // no need to do anything, usually will be in the BUSY state
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+  }
+&nbsp;
+  /**
+   * Opens the specified menu.
+   * @method _openMenu
+   * @private
+   * @param {Object} menu the menu to open.
+   * @since 0.0.1
+   */
+<span class="fstat-no" title="function not covered" >  function _openMenu(menu) {</span>
+<span class="cstat-no" title="statement not covered" >    var $nav = menu.$nav;</span>
+<span class="cstat-no" title="statement not covered" >    var animate = {'right': menu.openPosition + 'px'};</span>
+<span class="cstat-no" title="statement not covered" >    var animateOptions = {};</span>
+&nbsp;
+    // update the toggle state
+<span class="cstat-no" title="statement not covered" >    menu.toggleState = TOGGLE_STATE.BUSY;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    animateOptions.complete = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      _onMenuOpened(menu);</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $nav.animate(animate, animateOptions);</span>
+  }
+&nbsp;
+  /**
+   * The event that the menu has finally finished opening.
+   * @method _onMenuOpened
+   * @private
+   * @param {Object} menu the menu that opened.
+   * @since 0.0.1
+   */
+<span class="fstat-no" title="function not covered" >  function _onMenuOpened(menu) {</span>
+    // update toggle icon
+<span class="cstat-no" title="statement not covered" >    menu.$toggleIcon</span>
+      .removeClass('click-menu-toggle-to-open')
+      .addClass('click-menu-toggle-to-close');
+    // update the toggle state
+<span class="cstat-no" title="statement not covered" >    menu.toggleState = TOGGLE_STATE.OPENED;</span>
+  }
+&nbsp;
+  /**
+   * Closes the specified menu.
+   * @method _closeMenu
+   * @private
+   * @param {Object} menu the menu to close.
+   * @since 0.0.1
+   */
+<span class="fstat-no" title="function not covered" >  function _closeMenu(menu) {</span>
+<span class="cstat-no" title="statement not covered" >    var $nav = menu.$nav;</span>
+<span class="cstat-no" title="statement not covered" >    var animate = {'right': menu.closePosition + 'px'};</span>
+<span class="cstat-no" title="statement not covered" >    var animateOptions = {};</span>
+&nbsp;
+    // update the toggle state
+<span class="cstat-no" title="statement not covered" >    menu.toggleState = TOGGLE_STATE.BUSY;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    animateOptions.complete = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      _onMenuClosed(menu);</span>
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $nav.animate(animate, animateOptions);</span>
+  }
+&nbsp;
+  /**
+   * The event the the menu has finally finished closing.
+   * @method _onMethodClose
+   * @private
+   * @param {Object} menu the menu that closed.
+   * @since 0.0.1
+   */
+<span class="fstat-no" title="function not covered" >  function _onMenuClosed(menu) {</span>
+    // update toggle icon
+<span class="cstat-no" title="statement not covered" >    menu.$toggleIcon</span>
+      .removeClass('click-menu-toggle-to-close')
+      .addClass('click-menu-toggle-to-open');
+    // update the toggle state
+<span class="cstat-no" title="statement not covered" >    menu.toggleState = TOGGLE_STATE.CLOSED;</span>
+  }
+})(jQuery);
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Apr 30 2016 03:22:46 GMT-0700 (Pacific Daylight Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -67,12 +67,12 @@ module.exports = function() {
 
     /* Spec Injections */
     testlibraries: [
-      nodeModules + '/qunitjs/qunit/qunit.js',
       nodeModules + '/mocha/mocha.js',
       nodeModules + '/chai/chai.js',
       nodeModules + '/sinon-chai/lib/sinon-chai.js'
     ],
     specs: [clientPlugin + '**/*.spec.js'],
+    serverIntegrationSpecs: [client + '/tests/server-integration/**/*.spec.js'],
 
     /* Node Settings */
     nodeServer: server + 'app.js',
@@ -104,7 +104,8 @@ module.exports = function() {
     var options = {
       files: [].concat(
         bowerFiles,
-        clientApp + '**/*.js'
+        clientApp + '**/*.js',
+        clientPlugin + '**/*.js'
       ),
       exclude: [],
       coverage: {
@@ -118,7 +119,7 @@ module.exports = function() {
       },
       preprocessors: {}
     };
-    options.preprocessors[clientApp + '**/!(*.spec)+(.js)'] = ['coverage'];
+    options.preprocessors[client + '**/!(*.spec)+(.js)'] = ['coverage'];
     return options;
   }
 };
