@@ -4,18 +4,22 @@
   "authors": [
     "Brandon sherette"
   ],
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": [
     "build/click-menu.js",
     "build/styles/styles.css"
   ],
   "ignore": [
     "api-docs",
-    "gulp*.**",
-    "karma.config.js",
-    ".jscsrc",
-    ".editorconfig",
-    "src/client"
+    "example",
+    "node_modules",
+    "vendor",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "Gulpfile.js",
+    "package.json",
+    ".bowerrc"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -29,18 +33,6 @@
   "keywords": [
     "javascript",
     "browser"
-  ],
-  "ignore": [
-    "api-docs",
-    "example",
-    "node_modules",
-    "vendor",
-    ".gitignore",
-    ".jshintignore",
-    ".jshintrc",
-    "Gulpfile.js",
-    "package.json",
-    ".bowerrc"
   ],
   "overrides": {
     "bootstrap": {
