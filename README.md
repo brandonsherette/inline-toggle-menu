@@ -8,7 +8,7 @@ Brandon Sherette <http://brandonsherette.com>
 
 ## Bower
 ```bash
-bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-inline-toggle-menu.git --save
+bower install https://github.com/brandonsherette/inline-toggle-menu.git --save
 ```
 
 ## Add CSS to Html Page
@@ -60,4 +60,9 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-inlin
 </section>
 ```
 # Examples
-To see a working example just open **bower_components/inline-toggle-menu/examples/menu.bower.html.** in your web browser.
+
+## Installed via Bower
+Open **bower_components/inline-toggle-menu/examples/menu.bower.html.** in your web browser.
+
+## Installed via Git
+Open **examples/menu.git.html** in your web browser.
