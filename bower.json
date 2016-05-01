@@ -1,6 +1,6 @@
 {
   "name": "inline-toggle-menu",
-  "description": "JavaScript inline toggle menu that will slide into the nav link with a button press revealing additional buttons. Useful for a variation of CRUD UI.",
+  "description": "JavaScript inline toggle menu that will slide into the nav link with a button press revealing additional buttons.",
   "authors": [
     "Brandon sherette"
   ],
