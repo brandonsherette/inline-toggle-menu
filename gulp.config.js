@@ -18,7 +18,7 @@ module.exports = function() {
   };
   var nodeModules = 'node_modules';
   var pluginLess = clientPlugin + 'styles/**/*.less';
-  var pluginName = 'click-menu';
+  var pluginName = 'inline-toggle-menu';
 
   var config = {
     /* FILE PATHS */

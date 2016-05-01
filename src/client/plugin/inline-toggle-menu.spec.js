@@ -1,14 +1,14 @@
 /* jshint -W117, -W030 */
-describe('Click Menu Spec', function() {
+describe('Inline Toggle Menu Spec', function() {
   it('should exist', function() {
-    expect(ClickMenu).to.be.defined;
+    expect(InlineToggleMenu).to.be.defined;
   });
 
   it('should have correct API', function() {
-    expect(ClickMenu.init).to.be.a('function');
-    expect(ClickMenu.getMenus).to.be.a('function');
-    expect(ClickMenu.TOGGLE_STATE).to.be.a('object');
-    expect(ClickMenu.$).to.be.defined;
+    expect(InlineToggleMenu.init).to.be.a('function');
+    expect(InlineToggleMenu.getMenus).to.be.a('function');
+    expect(InlineToggleMenu.TOGGLE_STATE).to.be.a('object');
+    expect(InlineToggleMenu.$).to.be.defined;
   });
 });
 /**
@@ -19,7 +19,7 @@ describe('Click Menu Spec', function() {
 function getMenu(index) {
   index = index || 0;
 
-  return ClickMenu.getMenus()[index];
+  return InlineToggleMenu.getMenus()[index];
 }
 
 /**
@@ -29,13 +29,13 @@ function getMenu(index) {
 function getMockPage() {
   var page =
     '<div><ul class="nav">' +
-    ' <li role="presentation" class="click-menu">' +
-    '   <span class="click-menu-view">' +
-    '     <span class="click-menu-contents">' +
-    '       <a href="#" class="click-menu-link">Menu 1</a>' +
+    ' <li role="presentation" class="inline-toggle-menu">' +
+    '   <span class="inline-toggle-menu-view">' +
+    '     <span class="inline-toggle-menu-contents">' +
+    '       <a href="#" class="inline-toggle-menu-link">Menu 1</a>' +
     '     </span>' +
-    '     <span class="click-menu-nav">' +
-    '       <span class="nav-item click-menu-toggle">' +
+    '     <span class="inline-toggle-menu-nav">' +
+    '       <span class="nav-item inline-toggle-menu-toggle">' +
     '         <button class="btn btn-default-primary">' +
     '           <i class="toggle-icon fa fa-arrow-circle-left"></i>' +
     '         </button>' +

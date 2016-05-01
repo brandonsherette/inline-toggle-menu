@@ -2,48 +2,48 @@
 @import 'sizes.less';
 @import 'mixins.less';
 
-.click-menu {
+.inline-toggle-menu {
   margin: 0 auto;
   display: block;
   overflow: hidden;
   border: 1px solid @color-border;
-  line-height: @click-menu-height;
+  line-height: @inline-toggle-menu-height;
 }
 
-.click-menu * {
+.inline-toggle-menu * {
   display: block;
   max-height: 100%;
   min-height: 100%;
   height: 100%;
-  line-height: @click-menu-height;
+  line-height: @inline-toggle-menu-height;
 }
 
-.click-menu,
-.click-menu-view {
-  max-height: @click-menu-height;
-  min-height: @click-menu-height;
-  height: @click-menu-height;
+.inline-toggle-menu,
+.inline-toggle-menu-view {
+  max-height: @inline-toggle-menu-height;
+  min-height: @inline-toggle-menu-height;
+  height: @inline-toggle-menu-height;
 }
 
-.click-menu,
-.click-menu-contents,
-.click-menu-link {
-  width: @click-menu-width;
-  max-width: @click-menu-width;
+.inline-toggle-menu,
+.inline-toggle-menu-contents,
+.inline-toggle-menu-link {
+  width: @inline-toggle-menu-width;
+  max-width: @inline-toggle-menu-width;
 }
 
-.click-menu-view {
+.inline-toggle-menu-view {
   display: block;
   padding: 0;
   margin: 0;
   
-  .click-menu-contents,
-  .click-menu-nav {
+  .inline-toggle-menu-contents,
+  .inline-toggle-menu-nav {
     .bs-inline-block;
   }
 }
 
-.click-menu-link {
+.inline-toggle-menu-link {
   position: absolute;
   top: 0;
   left: 0;
@@ -54,13 +54,13 @@
   text-align: left;
 }
 
-.click-menu-link,
-.click-menu-nav {
+.inline-toggle-menu-link,
+.inline-toggle-menu-nav {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.click-menu-nav {
+.inline-toggle-menu-nav {
   position: relative;
   border: none;
   padding: 0px;

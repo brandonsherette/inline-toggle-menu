@@ -1,5 +1,5 @@
 /* jshint -W117 */
-var ClickMenu = (function($) {
+var InlineToggleMenu = (function($) {
   /**
    * Stores all click menus.
    * @property menus
@@ -43,20 +43,20 @@ var ClickMenu = (function($) {
    * Click Menu. Used to transition menu into view after click, much like
    * a dropdown, however does it over the link along with some sort of
    * animation effect.
-   * @class ClickMenu
+   * @class InlineToggleMenu
    * @author Brandon Sherette
    * @since 0.0.1
    */
-  var ClickMenu = {
+  var InlineToggleMenu = {
     $: $,
     init: init,
     getMenus: getMenus,
     TOGGLE_STATE: TOGGLE_STATE
   };
 
-  $(document).ready(ClickMenu.init);
+  $(document).ready(InlineToggleMenu.init);
 
-  return ClickMenu;
+  return InlineToggleMenu;
   //////////////////
   /* API METHODS */
   /////////////////
@@ -68,15 +68,15 @@ var ClickMenu = (function($) {
    * @since 0.0.1
    */
   function init() {
-    var $menus = $('.click-menu');
+    var $menus = $('.inline-toggle-menu');
 
     // bind menu data
     $menus.each(function() {
       var $root = $(this);
-      var $view = $root.find('.click-menu-view');
-      var $link = $root.find('.click-menu-link');
-      var $nav = $root.find('.click-menu-nav');
-      var $toggle = $nav.find('.click-menu-toggle');
+      var $view = $root.find('.inline-toggle-menu-view');
+      var $link = $root.find('.inline-toggle-menu-link');
+      var $nav = $root.find('.inline-toggle-menu-nav');
+      var $toggle = $nav.find('.inline-toggle-menu-toggle');
       var closePosition = parseFloat($nav.css('right'));
 
       // calculate openPosition by the complete nav width
@@ -177,8 +177,8 @@ var ClickMenu = (function($) {
   function _onMenuOpened(menu) {
     // update toggle icon
     menu.$toggleIcon
-      .removeClass('click-menu-toggle-to-open')
-      .addClass('click-menu-toggle-to-close');
+      .removeClass('inline-toggle-menu-toggle-to-open')
+      .addClass('inline-toggle-menu-toggle-to-close');
     // update the toggle state
     menu.toggleState = TOGGLE_STATE.OPENED;
   }
@@ -215,8 +215,8 @@ var ClickMenu = (function($) {
   function _onMenuClosed(menu) {
     // update toggle icon
     menu.$toggleIcon
-      .removeClass('click-menu-toggle-to-close')
-      .addClass('click-menu-toggle-to-open');
+      .removeClass('inline-toggle-menu-toggle-to-close')
+      .addClass('inline-toggle-menu-toggle-to-open');
     // update the toggle state
     menu.toggleState = TOGGLE_STATE.CLOSED;
   }

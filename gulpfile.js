@@ -280,9 +280,9 @@ gulp.task('bump', function() {
 gulp.task('jsdoc', function() {
   return gulp.src(config.pluginSrcCode)
     .pipe($.yuidoc({
-      name: 'click-menu API',
-      description: 'The click-menu API.',
-      /*'version': require('./package').version,*/
+      name: config.pluginName + ' API',
+      description: config.pluginName + ' API.',
+      'version': require('./package').version,
       url: ''
     }, {
       themedir: 'node_modules/yuidoc-bootstrap-theme',
