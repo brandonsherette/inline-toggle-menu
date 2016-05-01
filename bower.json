@@ -6,20 +6,17 @@
   ],
   "version": "0.0.4",
   "main": [
-    "build/click-menu.js",
-    "build/styles/styles.css"
+    "dist/click-menu.js",
+    "dist/click-menu.css"
   ],
   "ignore": [
+    ".*",
+    "*.js",
+    "*.md",
     "api-docs",
-    "example",
-    "node_modules",
-    "vendor",
-    ".gitignore",
-    ".jshintignore",
-    ".jshintrc",
-    "Gulpfile.js",
+    "gulp*",
     "package.json",
-    ".bowerrc"
+    "src"
   ],
   "license": "MIT",
   "devDependencies": {

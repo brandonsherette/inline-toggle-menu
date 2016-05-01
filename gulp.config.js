@@ -27,8 +27,7 @@ module.exports = function() {
       './src/**/*.js',
       './*.js'
     ],
-    build: './build/',
-    buildMergeFiles: './build-merge/**/*',
+    build: './dist/',
     client: client,
     css: temp + 'styles.css',
     fonts: bower.directory + 'font-awesome/fonts/**/*.*',
