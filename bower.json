@@ -2,9 +2,13 @@
   "name": "inline-toggle-menu",
   "description": "JavaScript inline toggle menu that will slide into the nav link with a button press revealing additional buttons.",
   "authors": [
-    "Brandon sherette"
+    "Brandon sherette <bsherette@gmail.com> (http://brandonsherette.com)"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brandonsherette/inline-toggle-menu.git"
+  },
   "main": [
     "dist/click-menu.js",
     "dist/click-menu.css"
@@ -28,11 +32,12 @@
     "font-awesome": "^4.5.0"
   },
   "keywords": [
-    "JavaScript",
-    "Plugin",
-    "Click",
-    "Menu",
-    "Toggle",
+    "javascript",
+    "plugin",
+    "nav",
+    "click",
+    "menu",
+    "toggle",
     "inline-toggle-menu",
     "Inline Toggle Menu"
   ],
