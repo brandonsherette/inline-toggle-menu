@@ -32,7 +32,9 @@
     "Plugin",
     "Click",
     "Menu",
-    "Toggle"
+    "Toggle",
+    "inline-toggle-menu",
+    "Inline Toggle Menu"
   ],
   "overrides": {
     "bootstrap": {
