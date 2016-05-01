@@ -4,7 +4,7 @@
   "authors": [
     "Brandon sherette"
   ],
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": [
     "dist/click-menu.js",
     "dist/click-menu.css"

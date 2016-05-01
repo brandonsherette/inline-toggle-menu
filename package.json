@@ -1,6 +1,6 @@
 {
   "name": "click-menu",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Brandon sherette",
   "description": "JavaScript click plugin that will slide into the nav link with a button press.",
   "license": "MIT",
