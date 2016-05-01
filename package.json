@@ -2,7 +2,7 @@
   "name": "click-menu",
   "version": "0.0.6",
   "author": "Brandon sherette",
-  "description": "",
+  "description": "JavaScript click plugin that will slide into the nav link with a button press.",
   "license": "MIT",
   "scripts": {
     "init": "npm install",
@@ -61,5 +61,11 @@
     "yargs": "^3.15.0",
     "yuidoc-bootstrap-theme": "^1.0.6"
   },
-  "keywords": []
+  "keywords": [
+    "JavaScript",
+    "Plugin",
+    "Click",
+    "Menu",
+    "Toggle"
+  ]
 }

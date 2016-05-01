@@ -1,5 +1,10 @@
 #click-menu
-**Author:** Brandon Sherette
+A JavaScript Click Menu Plugin that will slides the nav menu into the outer base link after the toggle is pressed, and retracts once pressed again.
+
+# Authors
+Brandon Sherette <http://brandonsherette.com>
+
+# Installation
 
 ## Bower
 ```bash
@@ -12,17 +17,18 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-click
 <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="bower_components/click-menu/dist/click-menu.min.css">
 ```
+
 ## Add JavaScript to Html Page
 ```html
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/click-menu/dist/click-menu.min.js"></script>
 ```
+
 ## Click Menu Example
 ```
 <section class="container">
   <h1 class="text-center">Products</h1>
-
   <ul class="nav">
     <li class="click-menu">
       <span class="click-menu-view">
@@ -51,8 +57,7 @@ bower install https://brandonsherette@bitbucket.org/brandonsherette/plugin-click
       </span>
     </li>
   </ul>
-
 </section>
 ```
-## Working Example
-To see a working example just open examples/menu.html.
+# Examples
+To see a working example just open **bower_components/click-menu/examples/menu.bower.html.** in your web browser.

@@ -1,6 +1,6 @@
 {
   "name": "click-menu",
-  "description": "click-menu",
+  "description": "JavaScript click plugin that will slide into the nav link with a button press.",
   "authors": [
     "Brandon sherette"
   ],
@@ -28,8 +28,11 @@
     "font-awesome": "^4.5.0"
   },
   "keywords": [
-    "javascript",
-    "browser"
+    "JavaScript",
+    "Plugin",
+    "Click",
+    "Menu",
+    "Toggle"
   ],
   "overrides": {
     "bootstrap": {
