@@ -4,19 +4,19 @@
   "authors": [
     "Brandon sherette"
   ],
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": [
     "dist/click-menu.js",
     "dist/click-menu.css"
   ],
   "ignore": [
-    ".*",
-    "*.js",
-    "*.md",
-    "api-docs",
-    "gulp*",
-    "package.json",
-    "src"
+    "/.*",
+    "/*.js",
+    "/*.md",
+    "/api-docs",
+    "/gulp*",
+    "/package.json",
+    "/src"
   ],
   "license": "MIT",
   "devDependencies": {
