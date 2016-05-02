@@ -1,5 +1,18 @@
 /* jshint -W117, -W030 */
 describe('Inline Toggle Menu Spec', function() {
+  beforeEach(function() {
+    FixtureHelper.addFixture().addHtml(getMockPage());
+
+    /*var fixtureHtml = '<div id="unit-fixture" ' +
+      'style="position:absolute;top:-10000px;' +
+      'left:-10000px;' +
+      'width:1000px;' +
+      'height:1000px;">' + getMockPage() + '</div>';
+
+    document.body.insertAdjacentHTML('afterbegin', fixtureHtml);
+    $fixture = $('#unit-fixture');*/
+  });
+
   it('should exist', function() {
     expect(InlineToggleMenu).to.be.defined;
   });
@@ -9,6 +22,20 @@ describe('Inline Toggle Menu Spec', function() {
     expect(InlineToggleMenu.getMenus).to.be.a('function');
     expect(InlineToggleMenu.TOGGLE_STATE).to.be.a('object');
     expect(InlineToggleMenu.$).to.be.defined;
+  });
+
+  it('should have fixture setup correctly', function() {
+    expect(FixtureHelper.$fixture.html()).to.equal(getMockPage());
+  });
+
+  it('should initialize properly with one menu item', function() {
+    InlineToggleMenu.init();
+
+    expect(InlineToggleMenu.getMenus().length).to.equal(1);
+  });
+
+  afterEach(function() {
+    FixtureHelper.removeFixture();
   });
 });
 /**

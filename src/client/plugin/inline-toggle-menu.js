@@ -1,21 +1,6 @@
 /* jshint -W117 */
 (function($) {
   /**
-   * Click Menu. Used to transition menu into view after click, much like
-   * a dropdown, however does it over the link along with some sort of
-   * animation effect.
-   * @class InlineToggleMenu
-   * @author Brandon Sherette
-   * @since 0.0.1
-   */
-  var InlineToggleMenu = {
-    $: $,
-    init: init,
-    getMenus: getMenus,
-    TOGGLE_STATE: TOGGLE_STATE
-  };
-
-  /**
    * Stores all click menus.
    * @property menus
    * @private
@@ -54,6 +39,22 @@
     OPENED: 'opened'
   };
 
+  /**
+   * Click Menu. Used to transition menu into view after click, much like
+   * a dropdown, however does it over the link along with some sort of
+   * animation effect.
+   * @class InlineToggleMenu
+   * @author Brandon Sherette
+   * @since 0.0.1
+   */
+  var InlineToggleMenu = {
+    $: $,
+    init: init,
+    getMenus: getMenus,
+    TOGGLE_STATE: TOGGLE_STATE,
+    unbind: unbind
+  };
+
   // expose plugin
   window.InlineToggleMenu = InlineToggleMenu;
 
@@ -64,6 +65,7 @@
   //////////////////
   /* API METHODS */
   /////////////////
+
   /**
    * Initializes the click menu. Searches for all click menus, and
    * sets them up for use. Init is automatically called once after the
@@ -73,6 +75,9 @@
    */
   function init() {
     var $menus = $('.inline-toggle-menu');
+
+    // make sure to unbind any old lingering events
+    unbind();
 
     // bind menu data
     $menus.each(function() {
@@ -115,6 +120,20 @@
    */
   function getMenus() {
     return menus;
+  }
+
+  /**
+   * Unbinds click menu events from all menus.
+   * @method unbind
+   * @chainable
+   * @since 0.0.3
+   */
+  function unbind() {
+    var menus = getMenus();
+
+    menus.forEach(function(menu) {
+      menu.$toggle.off('click');
+    });
   }
 
   /////////////////////

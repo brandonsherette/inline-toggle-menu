@@ -36,13 +36,19 @@
     </p>
 
     <div id="mocha"></div>
-    <div id="unit-fixture"></div>
 
     <!-- inject:testlibraries:js -->
     <script src="/node_modules/mocha/mocha.js"></script>
     <script src="/node_modules/chai/chai.js"></script>
     <script src="/node_modules/sinon-chai/lib/sinon-chai.js"></script>
     <!-- endinject -->
+    
+    <script>
+      expect = chai.expect;
+      assert = chai.assert;
+      mocha.setup('bdd');
+      mocha.traceIgnores = ['mocha.js', 'chai.js'];
+    </script>
 
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -54,12 +60,9 @@
     <script src="/src/client/plugin/inline-toggle-menu.js"></script>
     <!-- endinject -->
     
-    <script>
-      expect = chai.expect;
-      assert = chai.assert;
-      mocha.setup('bdd');
-      mocha.traceIgnores = ['mocha.js', 'chai.js'];
-    </script>
+    <!-- inject:spechelpers:js -->
+    <script src="/src/client/test-helpers/fixture.js"></script>
+    <!-- endinject -->
 
     <!-- inject:specs:js -->
     <script src="/src/client/plugin/inline-toggle-menu.spec.js"></script>

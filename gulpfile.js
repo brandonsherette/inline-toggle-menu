@@ -140,6 +140,7 @@ gulp.task('build-specs', [], function(done) {
     .pipe(wiredep(options))
     .pipe(inject(config.js, '', config.jsOrder))
     .pipe(inject(config.testlibraries, 'testlibraries'))
+    .pipe(inject(config.specHelpers, 'spechelpers'))
     .pipe(inject(specs, 'specs', ['**/*']))
     .pipe(gulp.dest(config.client));
 });

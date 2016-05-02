@@ -81,6 +81,7 @@ module.exports = function() {
       nodeModules + '/chai/chai.js',
       nodeModules + '/sinon-chai/lib/sinon-chai.js'
     ],
+    specHelpers: [client + 'test-helpers/*.js'],
     specs: [clientPlugin + '**/*.spec.js'],
     serverIntegrationSpecs: [client + '/tests/server-integration/**/*.spec.js'],
 
@@ -114,6 +115,7 @@ module.exports = function() {
     var options = {
       files: [].concat(
         bowerFiles,
+        config.specHelpers,
         clientApp + '**/*.js',
         clientPlugin + '**/*.js'
       ),
