@@ -1,5 +1,20 @@
 /* jshint -W117 */
-var InlineToggleMenu = (function($) {
+(function($) {
+  /**
+   * Click Menu. Used to transition menu into view after click, much like
+   * a dropdown, however does it over the link along with some sort of
+   * animation effect.
+   * @class InlineToggleMenu
+   * @author Brandon Sherette
+   * @since 0.0.1
+   */
+  var InlineToggleMenu = {
+    $: $,
+    init: init,
+    getMenus: getMenus,
+    TOGGLE_STATE: TOGGLE_STATE
+  };
+
   /**
    * Stores all click menus.
    * @property menus
@@ -39,21 +54,10 @@ var InlineToggleMenu = (function($) {
     OPENED: 'opened'
   };
 
-  /**
-   * Click Menu. Used to transition menu into view after click, much like
-   * a dropdown, however does it over the link along with some sort of
-   * animation effect.
-   * @class InlineToggleMenu
-   * @author Brandon Sherette
-   * @since 0.0.1
-   */
-  var InlineToggleMenu = {
-    $: $,
-    init: init,
-    getMenus: getMenus,
-    TOGGLE_STATE: TOGGLE_STATE
-  };
+  // expose plugin
+  window.InlineToggleMenu = InlineToggleMenu;
 
+  // auto initialize plugin
   $(document).ready(InlineToggleMenu.init);
 
   return InlineToggleMenu;
