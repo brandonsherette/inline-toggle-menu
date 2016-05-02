@@ -82,11 +82,7 @@
       var $nav = $root.find('.inline-toggle-menu-nav');
       var $toggle = $nav.find('.inline-toggle-menu-toggle');
       var closePosition = parseFloat($nav.css('right'));
-
-      // calculate openPosition by the complete nav width
-      // plus difference any extra spacing the start close position has
-      var navWidth = $nav.width();
-      var openPosition = navWidth;
+      var openPosition = $nav.width();
 
       var menu = {
         $root: $root,
