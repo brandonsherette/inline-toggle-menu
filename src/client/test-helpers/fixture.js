@@ -5,6 +5,7 @@
     addFixture: addFixture,
     addHtml: addHtml,
     buildFixtureHtml: buildFixtureHtml,
+    find: find,
     fixtureHtmlId: 'unit-fixture',
     removeFixture: removeFixture
   };
@@ -49,6 +50,10 @@
       '</div>';
 
     return fixtureHtml;
+  }
+
+  function find(selector) {
+    return this.$fixture.find(selector);
   }
 
   function removeFixture() {

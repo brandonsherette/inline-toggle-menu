@@ -10,6 +10,15 @@
    */
   var menus = [];
   /**
+   * jQuery Selector for the toggle (this is the element that will
+   * activate the slide effect).
+   * @property toggleSelector
+   * @type String
+   * @default '.inline-toggle-menu-toggle'
+   * @since 0.0.3
+   */
+  var toggleSelector = '.inline-toggle-menu-toggle';
+  /**
    * The different states the menu toggle can be in.
    * @property {Object} TOGGLE_STATE
    * @since 0.0.1
@@ -45,12 +54,15 @@
    * animation effect.
    * @class InlineToggleMenu
    * @author Brandon Sherette
-   * @since 0.0.1
+   * @since 0.0.3
    */
   var InlineToggleMenu = {
     $: $,
     init: init,
+    clearMenus: clearMenus,
     getMenus: getMenus,
+    finishToggleAnimation: finishToggleAnimation,
+    toggleSelector: toggleSelector,
     TOGGLE_STATE: TOGGLE_STATE,
     unbind: unbind
   };
@@ -71,13 +83,14 @@
    * sets them up for use. Init is automatically called once after the
    * document is ready.
    * @method init
+   * @chainable
    * @since 0.0.1
    */
   function init() {
     var $menus = $('.inline-toggle-menu');
 
-    // make sure to unbind any old lingering events
-    unbind();
+    // make sure to unbind any old lingering events and menu data
+    clearMenus();
 
     // bind menu data
     $menus.each(function() {
@@ -85,7 +98,7 @@
       var $view = $root.find('.inline-toggle-menu-view');
       var $link = $root.find('.inline-toggle-menu-link');
       var $nav = $root.find('.inline-toggle-menu-nav');
-      var $toggle = $nav.find('.inline-toggle-menu-toggle');
+      var $toggle = $nav.find(toggleSelector);
       var closePosition = parseFloat($nav.css('right'));
       var openPosition = $nav.width();
 
@@ -97,6 +110,9 @@
         $toggle: $toggle,
         $toggleIcon: $toggle.find('.toggle-icon'),
         closePosition: closePosition,
+        finishToggleAnimation: function() {
+          finishToggleAnimation(this);
+        },
         openPosition: openPosition,
         toggleState: TOGGLE_STATE.CLOSED
       };
@@ -110,6 +126,22 @@
         _onToggleClick(e, menu);
       });
     });
+
+    return this;
+  }
+
+  /**
+   * Clears the cached menu data (unbinds any events associated and
+   * does any other nessessary clean up operations).
+   * @method clearMenus
+   * @chainable
+   * @since 0.0.3
+   */
+  function clearMenus() {
+    unbind();
+    menus = [];
+
+    return this;
   }
 
   /**
@@ -123,17 +155,40 @@
   }
 
   /**
+   * Finishes all menu toggle animations.
+   * @method finishToggleAnimation
+   * @param {Object} [menu] the menu to finish toggle animation for.
+   * @chainable
+   * @since 0.0.3
+   */
+  function finishToggleAnimation(menu) {
+    // if menu is provided, only finish the menu's animation
+    if (menu && menu.$nav) {
+      menu.$nav.finish();
+
+      return this;
+    }
+
+    // no menu provided, so finish all toggle animations
+    menus.forEach(function(menu) {
+      menu.$nav.finish();
+    });
+
+    return this;
+  }
+
+  /**
    * Unbinds click menu events from all menus.
    * @method unbind
    * @chainable
    * @since 0.0.3
    */
   function unbind() {
-    var menus = getMenus();
-
     menus.forEach(function(menu) {
       menu.$toggle.off('click');
     });
+
+    return this;
   }
 
   /////////////////////
@@ -174,7 +229,7 @@
   function _openMenu(menu) {
     var $nav = menu.$nav;
     var animate = {'right': menu.openPosition + 'px'};
-    var animateOptions = {};
+    var animateOptions = {duration: 400};
 
     // update the toggle state
     menu.toggleState = TOGGLE_STATE.BUSY;

@@ -1,16 +1,13 @@
 /* jshint -W117, -W030 */
 describe('Inline Toggle Menu Spec', function() {
+  var menu;
+
   beforeEach(function() {
     FixtureHelper.addFixture().addHtml(getMockPage());
+  });
 
-    /*var fixtureHtml = '<div id="unit-fixture" ' +
-      'style="position:absolute;top:-10000px;' +
-      'left:-10000px;' +
-      'width:1000px;' +
-      'height:1000px;">' + getMockPage() + '</div>';
-
-    document.body.insertAdjacentHTML('afterbegin', fixtureHtml);
-    $fixture = $('#unit-fixture');*/
+  afterEach(function() {
+    FixtureHelper.removeFixture();
   });
 
   it('should exist', function() {
@@ -18,10 +15,13 @@ describe('Inline Toggle Menu Spec', function() {
   });
 
   it('should have correct API', function() {
+    expect(InlineToggleMenu.$).to.be.defined;
     expect(InlineToggleMenu.init).to.be.a('function');
     expect(InlineToggleMenu.getMenus).to.be.a('function');
+    expect(InlineToggleMenu.finishToggleAnimation).to.be.a('function');
+    expect(InlineToggleMenu.toggleSelector).to.be.a('string');
     expect(InlineToggleMenu.TOGGLE_STATE).to.be.a('object');
-    expect(InlineToggleMenu.$).to.be.defined;
+    expect(InlineToggleMenu.unbind).to.be.a('function');
   });
 
   it('should have fixture setup correctly', function() {
@@ -34,8 +34,48 @@ describe('Inline Toggle Menu Spec', function() {
     expect(InlineToggleMenu.getMenus().length).to.equal(1);
   });
 
-  afterEach(function() {
-    FixtureHelper.removeFixture();
+  it('should open after toggle has been clicked', function() {
+    InlineToggleMenu.init();
+    menu = getMenu();
+
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.CLOSED);
+
+    menu.$toggle.trigger('click');
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.BUSY);
+
+    menu.finishToggleAnimation();
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.OPENED);
+  });
+
+  it('should close after toggle has been clicked', function() {
+    InlineToggleMenu.init();
+    menu = getMenu();
+
+    // turn of jquery animations
+    $.fx.off = true;
+
+    menu.$toggle.trigger('click');
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.OPENED);
+
+    // turn jquery animations back on
+    $.fx.off = false;
+    menu.$toggle.trigger('click');
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.BUSY);
+
+    InlineToggleMenu.finishToggleAnimation(menu);
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.CLOSED);
+  });
+
+  it('should have toggle selector as ".inline-toggle-menu-toggle"', function() {
+    expect(InlineToggleMenu.toggleSelector).to.equal('.inline-toggle-menu-toggle');
+  });
+
+  it('should clean cached menus', function() {
+    InlineToggleMenu.init();
+
+    expect(InlineToggleMenu.getMenus().length).to.equal(1);
+    InlineToggleMenu.clearMenus();
+    expect(InlineToggleMenu.getMenus().length).to.equal(0);
   });
 });
 /**
