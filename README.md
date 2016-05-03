@@ -1,8 +1,5 @@
 #inline-toggle-menu
-A JavaScript Click Menu Plugin that will slides the nav menu into the outer base link after the toggle is pressed, and retracts once pressed again.
-
-# Authors
-Brandon Sherette <http://brandonsherette.com>
+A JavaScript plugin that is similar to a drop-down menu, except instead of revealing additional items below, it will slide inline to the base link. Used to help create a condensed UI for CRUD type operations.
 
 # Installation
 

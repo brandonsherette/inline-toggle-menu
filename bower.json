@@ -1,6 +1,6 @@
 {
   "name": "inline-toggle-menu",
-  "description": "JavaScript inline toggle menu that will slide into the nav link with a button press revealing additional buttons.",
+  "description": "A JS plugin that is similar to a dropdown menu, except instead of revealing additional items below, it will slide the menu inline.",
   "authors": [
     "Brandon sherette <bsherette@gmail.com> (http://brandonsherette.com)"
   ],
