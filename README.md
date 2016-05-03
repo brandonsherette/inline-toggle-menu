@@ -66,3 +66,7 @@ Open **bower_components/inline-toggle-menu/examples/menu.bower.html.** in your w
 
 ## Installed via Git
 Open **examples/menu.git.html** in your web browser.
+
+# Api
+
+One you download the git repo, you can view Inline Toggle Menu's API by opening api-docs/index.html in your web browser.
