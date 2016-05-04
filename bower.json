@@ -2,16 +2,16 @@
   "name": "inline-toggle-menu",
   "description": "A JS plugin that is similar to a dropdown menu, except instead of revealing additional items below, it will slide inline into the base link.",
   "authors": [
-    "Brandon sherette <bsherette@gmail.com> (http://brandonsherette.com)"
+    "Brandon Sherette <bsherette@gmail.com> (http://brandonsherette.com)"
   ],
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/brandonsherette/inline-toggle-menu.git"
   },
   "main": [
-    "dist/click-menu.js",
-    "dist/click-menu.css"
+    "dist/inline-toggle-menu.js",
+    "dist/inline-toggle-menu.css"
   ],
   "ignore": [
     "/.*",
