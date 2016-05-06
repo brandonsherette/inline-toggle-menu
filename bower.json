@@ -4,7 +4,7 @@
   "authors": [
     "Brandon Sherette <bsherette@gmail.com> (http://brandonsherette.com)"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/brandonsherette/inline-toggle-menu.git"
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "~2.1.4",
+    "jquery": "^2.1.4",
     "font-awesome": "^4.5.0"
   },
   "keywords": [
