@@ -6,83 +6,46 @@
   margin: 0 auto;
   display: block;
   overflow: hidden;
-  border: 1px solid @color-border;
-  line-height: @inline-toggle-menu-height;
-}
-
-.inline-toggle-menu * {
-  display: block;
-  max-height: 100%;
-  min-height: 100%;
-  height: 100%;
-  line-height: @inline-toggle-menu-height;
-}
-
-.inline-toggle-menu,
-.inline-toggle-menu-view {
-  max-height: @inline-toggle-menu-height;
-  min-height: @inline-toggle-menu-height;
-  height: @inline-toggle-menu-height;
-}
-
-.inline-toggle-menu,
-.inline-toggle-menu-contents,
-.inline-toggle-menu-link {
-  width: @inline-toggle-menu-width;
-  max-width: @inline-toggle-menu-width;
-}
-
-.inline-toggle-menu-view {
-  display: block;
-  padding: 0;
-  margin: 0;
+  border: @border-size solid @color-border;
+  width: 100%;
   
-  .inline-toggle-menu-contents,
-  .inline-toggle-menu-nav {
+  .inline-toggle-menu__view {
+    
+  }
+  .inline-toggle-menu__link {
+    padding-left: @side-padding;
+  }
+  
+  .inline-toggle-menu__view,
+  .inline-toggle-menu__link {
+    width: 100%;
+  }
+  .inline-toggle-menu__link {
+    text-align: left;
+  }
+  
+  .inline-toggle-menu__nav {
+    position: relative;
+    // need to add border size for correct positioning
+    top: -@inline-toggle-menu-height - @border-size;
+    right: -100%;
+    
+    .btn {
+      height: 100%;
+    }
+  }
+  .inline-toggle-menu__nav > * {
     .bs-inline-block;
   }
 }
 
-.inline-toggle-menu-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  font-size: @link-font-size;
-  text-align: left;
-}
-
-.inline-toggle-menu-link,
-.inline-toggle-menu-nav {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.inline-toggle-menu-nav {
-  position: relative;
-  border: none;
-  padding: 0px;
-  margin: 0px;
-  padding-bottom: 2px; /* some reason doesn't fit in container properly */
-  // push nav over by one list item
-  // need to add half of the distance to compensate for inline-block
-  // and add 1px for border size to completely move the toggle into 
-  // the viewable mask
-  right: @nav-width + (@inline-block-spacing / 2) + 1;
-  
-  .nav-item {
-    border-left: 1px solid @color-border;
-    float: left;
-    width: @nav-width;
-    
-    .btn {
-      padding-top: 0;
-      padding-bottom: 0;
-      border-radius: 0;
-      border: 0;
-      width: @nav-width;
-    }
-  }
+.inline-toggle-menu,
+.inline-toggle-menu * {
+  display: block;
+  min-height: @inline-toggle-menu-height;
+  height: @inline-toggle-menu-height;
+  max-height: @inline-toggle-menu-height;
+  line-height: @inline-toggle-menu-height;
+  padding: 0;
+  margin: 0;
 }
