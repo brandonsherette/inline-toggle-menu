@@ -8,29 +8,35 @@
   overflow: hidden;
   border: @border-size solid @color-border;
   width: 100%;
-  
+  font-size: @inline-toggle-menu-font-size;
+
   .inline-toggle-menu__view {
-    
+
   }
   .inline-toggle-menu__link {
     padding-left: @side-padding;
   }
-  
+
   .inline-toggle-menu__view,
   .inline-toggle-menu__link {
     width: 100%;
   }
   .inline-toggle-menu__link {
     text-align: left;
+    font-size: @inline-toggle-menu-font-size;
   }
-  
+
   .inline-toggle-menu__nav {
     position: relative;
     // need to add border size for correct positioning
     bottom: @inline-toggle-menu-height + @border-size;
     left: 100%;
     display: inline-block;
-    
+
+    .inline-toggle-menu__nav-group {
+      float: left;
+    }
+
     .btn {
       height: 100%;
       min-width: 50px;
@@ -39,6 +45,7 @@
       display: block;
       float: left;
       border-radius: 0;
+      font-size: @inline-toggle-menu-font-size;
     }
   }
 }
@@ -52,4 +59,24 @@
   line-height: @inline-toggle-menu-height;
   padding: 0;
   margin: 0;
+}
+
+@media (max-width: 650px) {
+  .inline-toggle-menu {
+    .inline-toggle-menu__link {
+      font-size: @inline-toggle-menu-font-size;
+      padding: 0px 0px 0px @side-padding;
+    }
+
+    .inline-toggle-menu__nav {
+      .btn {
+        font-size: @inline-toggle-menu-font-size;
+        display: block;
+        height: 100%;
+        line-height: @inline-toggle-menu-height;
+        border-radius: 0;
+        padding: 0;
+      }
+    }
+  }
 }
