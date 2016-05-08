@@ -72,6 +72,7 @@
   width: 100%;
 }
 .inline-toggle-menu .inline-toggle-menu__link {
+  line-height: 45px;
   text-align: left;
   font-size: 18px;
   border-radius: 0;
