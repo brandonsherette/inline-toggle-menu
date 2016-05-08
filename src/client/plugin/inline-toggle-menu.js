@@ -192,6 +192,7 @@
    */
   function placeMenuToClosePosition(menu) {
     menu.$nav.css('left', menu.closePosition + '%');
+    menu.toggleState = TOGGLE_STATE.CLOSED;
 
     return this;
   }
@@ -205,6 +206,9 @@
    */
   function placeMenuToOpenPosition(menu) {
     menu.$nav.css('left', menu.openPosition + '%');
+    menu.toggleState = TOGGLE_STATE.OPENED;
+
+    return this;
   }
 
   /**
@@ -257,7 +261,6 @@
         break;
 
       default:
-        // ignore the rest
     }
 
     return this;

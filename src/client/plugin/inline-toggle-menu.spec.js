@@ -19,6 +19,10 @@ describe('Inline Toggle Menu Spec', function() {
     expect(InlineToggleMenu.init).to.be.a('function');
     expect(InlineToggleMenu.getMenus).to.be.a('function');
     expect(InlineToggleMenu.finishToggleAnimation).to.be.a('function');
+    expect(InlineToggleMenu.placeMenuToClosePosition).to.be.a('function');
+    expect(InlineToggleMenu.placeMenuToOpenPosition).to.be.a('function');
+    expect(InlineToggleMenu.setupAllToggleMenuPositions).to.be.a('function');
+    expect(InlineToggleMenu.setupToggleMenuPositions).to.be.a('function');
     expect(InlineToggleMenu.toggleSelector).to.be.a('string');
     expect(InlineToggleMenu.TOGGLE_STATE).to.be.a('object');
     expect(InlineToggleMenu.unbind).to.be.a('function');
@@ -66,8 +70,8 @@ describe('Inline Toggle Menu Spec', function() {
     expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.CLOSED);
   });
 
-  it('should have toggle selector as ".inline-toggle-menu-toggle"', function() {
-    expect(InlineToggleMenu.toggleSelector).to.equal('.inline-toggle-menu-toggle');
+  it('should have toggle selector as ".inline-toggle-menu__toggle"', function() {
+    expect(InlineToggleMenu.toggleSelector).to.equal('.inline-toggle-menu__toggle');
   });
 
   it('should clean cached menus', function() {
@@ -76,6 +80,27 @@ describe('Inline Toggle Menu Spec', function() {
     expect(InlineToggleMenu.getMenus().length).to.equal(1);
     InlineToggleMenu.clearMenus();
     expect(InlineToggleMenu.getMenus().length).to.equal(0);
+  });
+
+  it('should place menu at open position', function() {
+    InlineToggleMenu.init();
+    menu = getMenu();
+
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.CLOSED);
+    InlineToggleMenu.placeMenuToOpenPosition(menu);
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.OPENED);
+  });
+
+  it('should place menu at close position', function() {
+    InlineToggleMenu.init();
+    menu = getMenu();
+
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.CLOSED);
+    InlineToggleMenu.placeMenuToOpenPosition(menu);
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.OPENED);
+
+    InlineToggleMenu.placeMenuToClosePosition(menu);
+    expect(menu.toggleState).to.equal(InlineToggleMenu.TOGGLE_STATE.CLOSED);
   });
 });
 /**
@@ -95,24 +120,20 @@ function getMenu(index) {
  */
 function getMockPage() {
   var page =
-    '<div><ul class="nav">' +
+    '<div style="width: 500px"><ul class="nav">' +
     ' <li role="presentation" class="inline-toggle-menu">' +
-    '   <span class="inline-toggle-menu-view">' +
-    '     <span class="inline-toggle-menu-contents">' +
-    '       <a href="#" class="inline-toggle-menu-link">Menu 1</a>' +
-    '     </span>' +
-    '     <span class="inline-toggle-menu-nav">' +
-    '       <span class="nav-item inline-toggle-menu-toggle">' +
-    '         <button class="btn btn-default-primary">' +
-    '           <i class="toggle-icon fa fa-arrow-circle-left"></i>' +
-    '         </button>' +
-    '       </span>' +
-    '       <span class="nav-item">' +
-    '         <a href="#" class="btn btn-info"><i class="fa fa-edit"></i></a>' +
-    '       </span>' +
-    '       <span class="nav-item">' +
-    '         <a href="#" class="btn btn-danger"><i class="fa fa-close"></i></a>' +
-    '       </span>' +
+    '   <span class="inline-toggle-menu__view">' +
+    '     <a href="#" class="inline-toggle-menu__link">Menu 1</a>' +
+    '     <span class="inline-toggle-menu__nav">' +
+    '       <button class="btn btn-primary inline-toggle-menu__toggle">' +
+    '         <i class="toggle-icon fa fa-arrow-circle-left"></i>' +
+    '       </button>' +
+    '       <a href="#" class="btn btn-info">' +
+    '         <i class="fa fa-edit"></i>' +
+    '       </a>' +
+    '       <a href="#" class="btn btn-danger">' +
+    '         <i class="fa fa-close"></i>' +
+    '       </a>' +
     '     </span>' +
     '   </span>' +
     ' </li>' +
