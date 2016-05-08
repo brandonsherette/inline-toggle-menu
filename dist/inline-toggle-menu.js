@@ -17,7 +17,7 @@
    * @default '.inline-toggle-menu-toggle'
    * @since 0.0.3
    */
-  var toggleSelector = '.inline-toggle-menu-toggle';
+  var toggleSelector = '.inline-toggle-menu__toggle';
   /**
    * The different states the menu toggle can be in.
    * @property {Object} TOGGLE_STATE
@@ -54,7 +54,7 @@
    * animation effect.
    * @class InlineToggleMenu
    * @author Brandon Sherette
-   * @since 0.0.3
+   * @since 0.0.6
    */
   var InlineToggleMenu = {
     $: $,
@@ -62,6 +62,10 @@
     clearMenus: clearMenus,
     getMenus: getMenus,
     finishToggleAnimation: finishToggleAnimation,
+    placeMenuToClosePosition: placeMenuToClosePosition,
+    placeMenuToOpenPosition: placeMenuToOpenPosition,
+    setupAllToggleMenuPositions: setupAllToggleMenuPositions,
+    setupToggleMenuPositions: setupToggleMenuPositions,
     toggleSelector: toggleSelector,
     TOGGLE_STATE: TOGGLE_STATE,
     unbind: unbind
@@ -95,12 +99,10 @@
     // bind menu data
     $menus.each(function() {
       var $root = $(this);
-      var $view = $root.find('.inline-toggle-menu-view');
-      var $link = $root.find('.inline-toggle-menu-link');
-      var $nav = $root.find('.inline-toggle-menu-nav');
+      var $view = $root.find('.inline-toggle-menu__view');
+      var $link = $root.find('.inline-toggle-menu__link');
+      var $nav = $root.find('.inline-toggle-menu__nav');
       var $toggle = $nav.find(toggleSelector);
-      var closePosition = parseFloat($nav.css('right'));
-      var openPosition = $nav.width();
 
       var menu = {
         $root: $root,
@@ -109,22 +111,26 @@
         $nav: $nav,
         $toggle: $toggle,
         $toggleIcon: $toggle.find('.toggle-icon'),
-        closePosition: closePosition,
+        closePosition: null,
         finishToggleAnimation: function() {
           finishToggleAnimation(this);
         },
-        openPosition: openPosition,
+        openPosition: null,
         toggleState: TOGGLE_STATE.CLOSED
       };
 
-      menus.push(menu);
-
-      $view.width($root.width() + $nav.width());
+      // setup starting position for the menu
+      setupToggleMenuPositions(menu);
 
       // bind click events
       menu.$toggle.on('click', function(e) {
         _onToggleClick(e, menu);
       });
+
+      // bind resize event
+      $(window).resize('onResize', setupAllToggleMenuPositions);
+
+      menus.push(menu);
     });
 
     return this;
@@ -173,6 +179,89 @@
     menus.forEach(function(menu) {
       menu.$nav.finish();
     });
+
+    return this;
+  }
+
+  /**
+   * Places the specified menu to its closePosition.
+   * @method placeMenuToClosePosition
+   * @param {Object} menu the menu to place.
+   * @chainable
+   * @since 0.0.6
+   */
+  function placeMenuToClosePosition(menu) {
+    menu.$nav.css('left', menu.closePosition + '%');
+    menu.toggleState = TOGGLE_STATE.CLOSED;
+
+    return this;
+  }
+
+  /**
+   * Places the specified menu to its openPosition.
+   * @method placeMenuToOpenPosition
+   * @param {Object} menu the menu to place.
+   * @chainable
+   * @since 0.0.6
+   */
+  function placeMenuToOpenPosition(menu) {
+    menu.$nav.css('left', menu.openPosition + '%');
+    menu.toggleState = TOGGLE_STATE.OPENED;
+
+    return this;
+  }
+
+  /**
+   * Sets up the toggle menu positions for all menu items.
+   * @method setupAllToggleMenuPositions
+   * @chainable
+   * @see InlineToggleMenu.setupToggleMenuPositions for more details.
+   * @since 0.0.6
+   */
+  function setupAllToggleMenuPositions() {
+    var menus = getMenus();
+
+    menus.forEach(function(menu) {
+      setupToggleMenuPositions(menu);
+    });
+
+    return this;
+  }
+
+  /**
+   * Sets up the toggle menu position of the specified menu.
+   * Calculates the openPosition and closePosition, finishes any
+   * toggle animations, and places the toggle menu nav in the correct
+   * position based on its current toggleState.
+   * @method setupToggleMenuPositions
+   * @param {Object} menu the menu to setup toggle positions for.
+   * @chainable
+   * @since 0.0.6
+   */
+  function setupToggleMenuPositions(menu) {
+    var viewWidth = menu.$view.width();
+    var openPosition = (viewWidth - menu.$nav.width()) / viewWidth * 100;
+    var closePosition = (viewWidth - menu.$toggle.width()) / viewWidth * 100;
+
+    // update menu open and close positions
+    menu.closePosition = closePosition;
+    menu.openPosition = openPosition;
+
+    // force animation to end
+    menu.finishToggleAnimation();
+
+    // set nav correct positioning
+    switch (menu.toggleState) {
+      case TOGGLE_STATE.CLOSED:
+        placeMenuToClosePosition(menu);
+        break;
+
+      case TOGGLE_STATE.OPENED:
+        placeMenuToOpenPosition(menu);
+        break;
+
+      default:
+    }
 
     return this;
   }
@@ -228,7 +317,7 @@
    */
   function _openMenu(menu) {
     var $nav = menu.$nav;
-    var animate = {'right': menu.openPosition + 'px'};
+    var animate = {'left': menu.openPosition + '%'};
     var animateOptions = {duration: 400};
 
     // update the toggle state
@@ -266,7 +355,7 @@
    */
   function _closeMenu(menu) {
     var $nav = menu.$nav;
-    var animate = {'right': menu.closePosition + 'px'};
+    var animate = {'left': menu.closePosition + '%'};
     var animateOptions = {};
 
     // update the toggle state
