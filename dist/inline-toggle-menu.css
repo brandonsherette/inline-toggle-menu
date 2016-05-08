@@ -62,6 +62,7 @@
   overflow: hidden;
   border: 1px solid #757575;
   width: 100%;
+  font-size: 18px;
 }
 .inline-toggle-menu .inline-toggle-menu__link {
   padding-left: 15px;
@@ -72,12 +73,16 @@
 }
 .inline-toggle-menu .inline-toggle-menu__link {
   text-align: left;
+  font-size: 18px;
 }
 .inline-toggle-menu .inline-toggle-menu__nav {
   position: relative;
   bottom: 46px;
   left: 100%;
   display: inline-block;
+}
+.inline-toggle-menu .inline-toggle-menu__nav .inline-toggle-menu__nav-group {
+  float: left;
 }
 .inline-toggle-menu .inline-toggle-menu__nav .btn {
   height: 100%;
@@ -87,6 +92,7 @@
   display: block;
   float: left;
   border-radius: 0;
+  font-size: 18px;
 }
 .inline-toggle-menu,
 .inline-toggle-menu * {
@@ -97,6 +103,20 @@
   line-height: 45px;
   padding: 0;
   margin: 0;
+}
+@media (max-width: 650px) {
+  .inline-toggle-menu .inline-toggle-menu__link {
+    font-size: 18px;
+    padding: 0px 0px 0px 15px;
+  }
+  .inline-toggle-menu .inline-toggle-menu__nav .btn {
+    font-size: 18px;
+    display: block;
+    height: 100%;
+    line-height: 45px;
+    border-radius: 0;
+    padding: 0;
+  }
 }
 
 .bs-inline-block {
