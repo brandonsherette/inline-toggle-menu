@@ -17,7 +17,7 @@
    * @default '.inline-toggle-menu-toggle'
    * @since 0.0.3
    */
-  var toggleSelector = '.inline-toggle-menu-toggle';
+  var toggleSelector = '.inline-toggle-menu__toggle';
   /**
    * The different states the menu toggle can be in.
    * @property {Object} TOGGLE_STATE
@@ -88,6 +88,9 @@
    */
   function init() {
     var $menus = $('.inline-toggle-menu');
+    // the width percent represents the percent width of the entire
+    // viewable container, in this case 100% of the view width
+    var widthPercent = 100;
 
     // make sure to unbind any old lingering events and menu data
     clearMenus();
@@ -95,12 +98,15 @@
     // bind menu data
     $menus.each(function() {
       var $root = $(this);
-      var $view = $root.find('.inline-toggle-menu-view');
-      var $link = $root.find('.inline-toggle-menu-link');
-      var $nav = $root.find('.inline-toggle-menu-nav');
+      var $view = $root.find('.inline-toggle-menu__view');
+      var $link = $root.find('.inline-toggle-menu__link');
+      var $nav = $root.find('.inline-toggle-menu__nav');
       var $toggle = $nav.find(toggleSelector);
-      var closePosition = parseFloat($nav.css('right'));
-      var openPosition = $nav.width();
+      var openPosition = widthPercent - ($nav.width() / $view.width());
+      var closePosition = widthPercent - ($toggle.width() / $view.width());
+
+      // need to move nav over so that the toggle is showing
+      $nav.css('left', closePosition + '%');
 
       var menu = {
         $root: $root,
@@ -118,8 +124,6 @@
       };
 
       menus.push(menu);
-
-      $view.width($root.width() + $nav.width());
 
       // bind click events
       menu.$toggle.on('click', function(e) {
@@ -228,7 +232,7 @@
    */
   function _openMenu(menu) {
     var $nav = menu.$nav;
-    var animate = {'right': menu.openPosition + 'px'};
+    var animate = {'left': menu.openPosition + '%'};
     var animateOptions = {duration: 400};
 
     // update the toggle state

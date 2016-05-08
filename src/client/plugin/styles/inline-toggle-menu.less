@@ -27,15 +27,19 @@
   .inline-toggle-menu__nav {
     position: relative;
     // need to add border size for correct positioning
-    top: -@inline-toggle-menu-height - @border-size;
-    right: -100%;
+    bottom: @inline-toggle-menu-height + @border-size;
+    left: 100%;
+    display: inline-block;
     
     .btn {
       height: 100%;
+      min-width: 50px;
+      width: 50px;
+      max-width: 50px;
+      display: block;
+      float: left;
+      border-radius: 0;
     }
-  }
-  .inline-toggle-menu__nav > * {
-    .bs-inline-block;
   }
 }
 
