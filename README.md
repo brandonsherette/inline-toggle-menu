@@ -3,6 +3,13 @@ A JavaScript plugin that is similar to a drop-down menu, except instead of revea
 
 # Updates
 
+## v0.0.6 to v0.0.7
+
+Updated styling to override bootstrap btn for proper placement for device width 650px.
+
+Added new css class ".inline-toggle-menu__nav-group" which is used if you 
+want your toggle menu anchor tags to be in a parent container.
+
 ## v0.0.5 to v0.0.6
 
 Updated entire html structure, so that it's less dom elements and is more responsive to various resolutions.
@@ -89,6 +96,28 @@ bower install inline-toggle-menu --save
   </ul>
 </section>
 ```
+
+# Toggle Menu Nav w/ Parent Container
+```html
+<span class="inline-toggle-menu__nav">
+  <button type="button"
+          class="btn btn-primary inline-toggle-menu__toggle">
+    <i class="toggle-icon fa fa-arrow-circle-left"></i>
+  </button>
+  <span class="inline-toggle-menu__nav-group">
+    <a href="#/edit/1" class="btn btn-info">
+      <i class="fa fa-edit"></i>
+    </a>
+    <a href="#/delete/1" class="btn btn-danger">
+      <i class="fa fa-close"></i>
+    </a>
+  </span>
+</span>
+```
+
+This is useful for if you are using Angular and want to ng-repeat the rest 
+of the toggle menu nav items.
+
 # Examples
 
 ## Installed via Bower
