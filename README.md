@@ -3,6 +3,10 @@ A JavaScript plugin that is similar to a drop-down menu, except instead of revea
 
 # Updates
 
+## v0.0.7 to v0.0.8
+
+Fixed issue with link styling in max-width: 650px.
+
 ## v0.0.6 to v0.0.7
 
 Updated styling to override bootstrap btn for proper placement for device width 650px.
