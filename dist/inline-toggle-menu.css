@@ -74,6 +74,11 @@
 .inline-toggle-menu .inline-toggle-menu__link {
   text-align: left;
   font-size: 18px;
+  border-radius: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 15px;
 }
 .inline-toggle-menu .inline-toggle-menu__nav {
   position: relative;
@@ -93,6 +98,7 @@
   float: left;
   border-radius: 0;
   font-size: 18px;
+  padding: 0;
 }
 .inline-toggle-menu,
 .inline-toggle-menu * {
@@ -111,7 +117,10 @@
     height: 100%;
     line-height: 45px;
     border-radius: 0;
-    padding: 0px 0px 0px 15px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 15px;
   }
   .inline-toggle-menu .inline-toggle-menu__nav .btn {
     font-size: 18px;
