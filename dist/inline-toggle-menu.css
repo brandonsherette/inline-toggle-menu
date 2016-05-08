@@ -107,6 +107,10 @@
 @media (max-width: 650px) {
   .inline-toggle-menu .inline-toggle-menu__link {
     font-size: 18px;
+    display: block;
+    height: 100%;
+    line-height: 45px;
+    border-radius: 0;
     padding: 0px 0px 0px 15px;
   }
   .inline-toggle-menu .inline-toggle-menu__nav .btn {
