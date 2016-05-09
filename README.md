@@ -1,7 +1,14 @@
 # inline-toggle-menu
 A JavaScript plugin that is similar to a drop-down menu, except instead of revealing additional items below, it will slide inline into the base link. Used to help create a condensed UI for CRUD type operations.
 
+# Current Version
+v0.1.0
+
 # Updates
+
+## v0.0.8 to v0.1.0
+
+Fixed issue with styling and toggle menu placement.
 
 ## v0.0.7 to v0.0.8
 
